@@ -9,6 +9,8 @@
 <body>
 	<a href="#">一覧</a>
 	<a href="#">検索</a>
+	<a href="#">借りてる本</a>
+	<a href="#">履歴</a>
 	<a href="#">ログアウト</a>
 </body>
 </html>
