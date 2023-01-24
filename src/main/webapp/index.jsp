@@ -8,7 +8,7 @@
 </head>
 <body>
 	<a href="AllBookServlet">一覧</a>
-	<a href="#">検索</a>
+	<a href="SerchServlet">検索</a>
 	<a href="#">ログイン</a>
 	<a href="#">新規登録</a>
 </body>
