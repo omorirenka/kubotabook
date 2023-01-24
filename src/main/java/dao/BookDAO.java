@@ -128,11 +128,11 @@ public class BookDAO {
 		
 							// n行目のデータを取得
 							int id = rs.getInt("id");
-							String BookName = rs.getString("bookname");
-							String Name = rs.getString("name");
-							String Syuppan = rs.getString("syuppan");
-			
-							Book commadity = new Book(id,BookName,Name, Syuppan);
+							String bookname = rs.getString("bookname");
+							String name = rs.getString("name");
+							String syuppan = rs.getString("syuppan");
+							String kasikari = rs.getString("kasikari");
+							Book commadity = new Book(id,bookname,name, syuppan,kasikari);
 							result.add(commadity);
 						}
 					}
