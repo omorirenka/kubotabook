@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="#">一覧</a>
+	<a href="AllBookServlet">一覧</a>
 	<a href="#">検索</a>
 	<a href="#">借りてる本</a>
 	<a href="#">履歴</a>
