@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="AllBookServlet">一覧</a>
-	<a href="SearchServlet">検索</a>
-	<a href="LoginServlet">ログイン</a>
-	<a href="RegisterFormServlet">新規登録</a>
+	<h3>登録に成功しました。</h3>
+	<a href="./">戻る</a>
 </body>
 </html>
