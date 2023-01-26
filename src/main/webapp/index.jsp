@@ -9,7 +9,7 @@
 <body>
 	<a href="AllBookServlet">一覧</a>
 	<a href="SearchServlet">検索</a>
-	<a href="LoginServlet">ログイン</a>
+	<a href="LoginFirstServlet">ログイン</a>
 	<a href="RegisterFormServlet">新規登録</a>
 </body>
 </html>

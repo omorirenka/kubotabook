@@ -29,7 +29,7 @@ public class AccountDAO {
 	}
 	
 	public static int registerAccount(Account account) {
-		String sql = "INSERT INTO account VALUES(default, ?, ?, ?, ?, current_timestamp)";
+		String sql = "INSERT INTO account1 VALUES(default, ?, ?, ?, ?)";
 		int result = 0;
 		
 		// ランダムなソルトの取得(今回は32桁で実装)
@@ -62,7 +62,7 @@ public class AccountDAO {
 	
 	// メールアドレスを元にソルトを取得
 	public static String getSalt(String mel) {
-		String sql = "SELECT salt FROM account WHERE mel = ?";
+		String sql = "SELECT salt FROM account1 WHERE mel = ?";
 		
 		try (
 				Connection con = getConnection();
@@ -87,7 +87,7 @@ public class AccountDAO {
 	
 	// ログイン処理
 	public static Account login(String mel, String hashedPw) {
-		String sql = "SELECT * FROM account WHERE mel = ? AND password = ?";
+		String sql = "SELECT * FROM account1 WHERE mel = ? AND password = ?";
 		
 		try (
 				Connection con = getConnection();
@@ -102,9 +102,8 @@ public class AccountDAO {
 					int id = rs.getInt("id");
 					String name = rs.getString("name");
 					String salt = rs.getString("salt");
-					String createdAt = rs.getString("created_at");
 					
-					return new Account(id, name, mel, salt, null, null);
+					return new Account(id, name, mel, salt, null);
 				}
 			}
 		} catch (SQLException e) {
