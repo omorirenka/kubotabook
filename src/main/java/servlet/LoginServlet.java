@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-request.getParameter("UTF-8");
+        request.getParameter("UTF-8");
 		
 		String mel = request.getParameter("mel");
 		String pw = request.getParameter("pw");
@@ -62,7 +62,7 @@ request.getParameter("UTF-8");
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 		} else {
-			String view = "WEB-INF/view/index.jsp";
+			String view = "WEB-INF/view/loginmenu.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 		}

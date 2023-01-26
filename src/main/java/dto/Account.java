@@ -18,6 +18,15 @@ public class Account {
 		this.hashedPassword = hashedPassword;
 	}
 
+	public Account(int id, String name, String mel, String salt, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.mel = mel;
+		this.salt = salt;
+		this.password = password;
+	}
+
 	public int getId() {
 		return id;
 	}

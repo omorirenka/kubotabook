@@ -9,6 +9,7 @@
 <body>
 	<%
 		request.setCharacterEncoding("UTF-8");
+	    String mel = request.getParameter("mel");
 		if(request.getParameter("error") != null){	
 	%>
 		<p style="color:red">ログイン失敗</p>
