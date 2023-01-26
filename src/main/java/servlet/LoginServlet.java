@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.AccountDAO;
 import dto.Account;
@@ -63,6 +64,8 @@ public class LoginServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		} else {
 			String view = "WEB-INF/view/loginmenu.jsp";
+			HttpSession session = request.getSession();
+			session.setAttribute("user", account);
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 		}
