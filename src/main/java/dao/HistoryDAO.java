@@ -4,7 +4,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import dto.History;
 
 public class HistoryDAO {
 	private static Connection getConnection() throws URISyntaxException, SQLException {
@@ -21,6 +27,55 @@ public class HistoryDAO {
 
 	    return DriverManager.getConnection(dbUrl, username, password);
 	}
+
+	public static List<History> selectHistory(int ac_id){
+		String sql = "SELECT * FROM history WHERE ac_id=? ";
+		List<History> result = new ArrayList<>();
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){	
+      try (ResultSet rs = pstmt.executeQuery()){
+          pstmt.setInt(1, ac_id);
+          while(rs.next()) {
+
+            int id = rs.getInt("id");
+            int acid=rs.getInt("ac_id");
+            int book_id=rs.getInt("book_id");
+
+            History history= new History(id,acid,book_id);
+
+            result.add(history);
+          }
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
-	
+	public static int registerHistory(int id,int acid,int bookid){ //履歴登録
+		String sql = "INSERT INTO history VALUES(default, ?, ?)";
+		int result = 0;
+    
+	  try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+      pstmt.setInt(1, acid);
+			pstmt.setInt(2, bookid);
+
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
 }
